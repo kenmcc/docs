@@ -1,0 +1,83 @@
+\documentclass[a4paper, titlepage, 14pt]{article}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage[a4paper, top=6cm, bottom=1in, left=2cm, right=2cm]{geometry}
+\usepackage{eso-pic}
+\usepackage{emerald}
+\usepackage[T1]{fontenc}
+
+
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,%
+keepaspectratio]{santabg.jpg}%
+\vfill
+}}}
+\pagenumbering{gobble}
+\begin{document}
+%\normalfont\ECFJD
+    
+
+\AddToShipoutPicture*{\BackgroundPic}
+
+
+\parbox[b][2cm][t]{0.85\textwidth}{
+}
+{\fontsize{0.7cm}{1.0cm}\selectfont  Dear Ronan,
+\\
+\\
+}
+
+{\fontsize{0.5cm}{0.7cm}\selectfont 
+    \mbox{\parbox[b][10cm][t]{0.85\textwidth}{
+        Thank you for coming to see me at the weekend, it was great to see how much you've grown since last year. You probably don't remember me, but I sure remember you!
+    \vskip 0.5cm
+    Your Daddy told me that you love playing with Sadhbhs' scooter, and that you would love one of your own, so I've got that packed up on the sleigh already to go, and one or 2 little other surprises. You and Sadhbh seem to play well together most of the time, but please try not to break her toys, especially the very small things. And you have to stop eating her markers and crayons too!
+    \vskip 0.5cm
+    Don't forget to go to bed early on Christmas Eve, and don't get up before the Sun wakes up! Will you help Sadhbh leave out some carrots for the reindeer? I know you love to feed the donkeys and the goats!
+    }} 
+    \\
+    \hspace*{3cm}\mbox{\parbox[b][2cm][t]{0.7\textwidth}{
+        See you very soon, \\*
+        \hspace*{1cm}Lots of love, \\
+        \hspace*{2cm}\Huge Santa \\
+            }} 
+            \vskip 0.8cm
+            \hspace*{4cm}\mbox{\parbox[b][2cm][t]{0.5\textwidth}{
+        p.s. Remember what I said about sleeping through the night!
+    }}
+        
+
+}
+\newpage
+\AddToShipoutPicture*{\BackgroundPic}
+{\fontsize{0.7cm}{1.0cm}\selectfont Dear Sadhbh,
+\\
+\\
+}
+
+{\fontsize{0.5cm}{0.7cm}\selectfont 
+    \mbox{\parbox[b][13cm][t]{0.85\textwidth}{
+        Thank you for coming to see me at the weekend, and for the lovely letter you sent me this morning. I've checked with the Elves and they have told me that you've been a very good girl this year, and are doing very well in Creche learning lots of interesting things. Some of the things on your list are a bit difficult to make this year, but I've got a special set of presents already packed for you, and I'm sure you won't be disappointed with them. 
+    \vskip 0.5cm
+    I know that Ronan sometimes messes with your toys and annoys you a bit, but it's very important that you continue to share with him, as you have been doing very well so far. You have to remember that he's only little and doesn't always understand what he's doing, even though it seems he's trying to wreck things he's only trying to learn.
+    \vskip 0.5cm
+    Don't forget to go to bed early on Christmas Eve, and don't get up before the Sun wakes up! I can't wait to try your Daddys' Mince Pies again, they were delicious last year, and please remember something for the poor Reindeer, they get very hungry flying around all night!
+    }} 
+    \\
+    \hspace*{3cm}\mbox{\parbox[b][2cm][t]{0.7\textwidth}{
+        See you very soon, \\*
+        \hspace*{1cm}Lots of love, \\
+        \hspace*{2cm}\Huge Santa \\
+            }} 
+            \vskip 0.8cm
+            \hspace*{4cm}\mbox{\parbox[b][2cm][t]{0.5\textwidth}{
+        p.s. Remember what I said last year about jumping on the couches and beds, and make sure you do everything your mammy and daddy tell you, especially to stop picking your nose!!
+    }}
+        
+
+}
+\end{document}
