@@ -1,0 +1,188 @@
+\documentclass[a4paper]{article}
+\usepackage[a4paper, top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+\usepackage{pdfpages}
+\begin{document}
+\tableofcontents
+\newpage
+\section {Introduction to Python}
+Python is a high-level programing language with a lot of powerful capabilities. 
+It is simple to learn and fast to develop in, and is ideally suited for many tasks.
+Here in S3 we use it for both commercial deployment, as well as internal tasks such as document generation, test script execution and personal projects.
+\\
+\\
+There are plenty of tutorials on the internet for reference, e.g. \\
+http://sthurlow.com/python/
+
+Python looks very like English and therefore is very simple to write. 
+
+
+\newpage\section {Interacting with real world items}
+Many computer programs do not really ``do'' much - they run on a PC and never really interact with the real world. 
+We are going to develop a simple motion-detecting device which will.
+
+\begin{itemize}
+\item Wait for some movement
+\item Take a photograph
+\item Email it to an email address (this bit is a bit limited here in S3, it can't send an email outside the company)
+\end{itemize}
+
+We are going to do so using the Raspberry Pi, a cheap, very powerful micro computer which 
+has been designed especially to make computing accessible to students and people wishing 
+to learn about coding and software.
+\\
+\\
+In order to detect the motion, we will use a P.I.R - a Passive Infrared Receiver. 
+These are in use in all sorts of things like burgler alarm sensors, security lights, 
+even the glade room-scent plug-ins which release an aroma as you walk past. They are very cheap, only a few euro on Ebay or similar.
+\\
+\\
+To take the picture we will use the Raspberry Pi Camera add-on to take the photo.
+\\
+\\
+Using the power of Python, we shall be able to send am email to one or more addresses, with the photo attached. 
+So you could set this up in your room and know if someone has been into it while you are away.
+\\
+\\
+Of course there are other things that a setup like this could do - we could change the behaviour of this so that 
+instead of taking a picture and emailing it, it could be used to turn on a light when you enter a room instead. 
+The possibilities are endless.
+\\
+\\
+Lets go....
+
+
+\newpage\section {Detecting Movement}
+The first stage is to get the raspberry pi to detect movement. A PIR sensor is connected to the board with 3 wires.
+\begin{itemize}
+\item+5v
+\item 0V
+\item Data
+\end{itemize}
++5v and 0 power the PIR sensor, and the Data connection is used to tell the Raspberry Pi when the sensor has detected movement
+\\
+\\
+Reference : http://www.raspberrypi-spy.co.uk/2013/01/cheap-pir-sensors-and-the-raspberry-pi-part-1/
+\\
+\\
+The code from this example is on the Raspberry Pi already, in the file ``pir\_sensor.py''
+\\
+\\
+This code does some small amount of setup, and then enters a loop which continuously reads the value of the data pin from the sensor.\\
+If this value is ``1'', then the sensor is indicating that it has detected some movement. \\
+If the values is ``0'', then the sensor has not detected any movement \\
+\\
+\\
+We can run this code by typing \\
+\emph{\textbf{sudo python pir\_sensor.py}}
+\\
+So this script will sit there and print ``Motion Detected!'' when it notices movement and ``Ready'' when it has reset and is waiting for the next movement to occur
+\\
+\\
+To exit the program, type the Ctrl Button and 'C'
+\\
+\\
+\subsection{Tasks:}
+\begin{enumerate}
+\item Run this script, as indicated above, and ensure that when you move near the sensor it detects it, and does not do so when you are still.
+\item Edit the file and change the messages which are printed out when motion is detected, and when it is ready to detect again.
+\end {enumerate}
+
+\newpage\section {Taking a photo}
+Now that we can detect motion, it's time to take a photo. In order to do this we use a python building block, called picamera, to take the photo.
+\\
+\\
+Reference: https://www.raspberrypi.org/picamera-pure-python-interface-for-camera-module/
+\\
+\\
+The code for this part is on the Raspberry Pi already, in the file ``takephoto.py''
+\\
+\\
+We can run this by typing \\
+\emph{\textbf{python takephoto.py}}
+\\
+And it should create a picture called ``image.jpg'' which contains an image of the area the camera is pointing at.
+\\
+\\
+It's a very simple piece of code, all it does is say \\
+- use the picamera module \\
+- take a picture and call it ``image.jpg'' \\
+- say when you've done that
+\\
+\\
+\subsection{Tasks:}
+\begin{enumerate}
+\item Run this script, as indicated above, and ensure that it takes a photo
+\item Edit the file and change the name of the photo it creates from ``image.jpg'' to ``motion.jpg''
+\end {enumerate}
+
+\newpage\section{Sending an Email}
+Python includes a lot of powerful functions to do all sorts of wonderful things very simply, and one of these is to send an email
+\\
+Reference : https://docs.python.org/2/library/email-examples.html
+\\
+\\
+There's a script on the raspberry pi which sends an email with an attachment
+\\
+We can run this with \\
+\emph{\textbf{python emailer.py}} \\
+but this will fail as we have to tell it who to send the email to \\
+\\
+So edit this file and change the line that says \\
+to=None\#``your.name@s3group.com'' \\
+and make it\\
+to=``yourEmailAddress@s3group.com''\\
+e.g. \\
+to=``ann.smith@mail.ie''\\
+\\
+and save this. Now when we run it \\
+\emph{\textbf{python emailer.py}} \\
+it will try to send the photo to your email address. But we changed the name of the photo from ``image.jpg'' to ``motion.jpg'', 
+so we need to change the emailer script again so that it uses ``motion.jpg''. \\ 
+
+\subsection{Tasks:}
+\begin{enumerate}
+\item Run the script and verify that it sends an email with the photo
+\item Change the script so that the subject line reads ``INTRUSION ALERT'' and that the email body says ``Motion has been detected near the observation zone'', instead of ``See for yourself''
+\item Take a few different photos using the ``takephoto.py'' script and email them using the ``emailer.py'' script
+\end{enumerate}
+
+\newpage\section {Tying it all together}
+So now we have all the individual pieces of the puzzle which allow us to:
+\begin{enumerate}
+\item Detect Motion
+\item Take a photo
+\item Email the evidence
+\end{enumerate}
+
+It's time to tie it all together into one program which does it all. 
+\subsection{Task:}
+\begin{enumerate}
+\item Create a new file called ``motioncamera.py''
+\item Using the code from the 3 other files, create a program which waits for motion to be detected, and when it does so, take a picture and email it to you
+\end{enumerate}    
+Some issues you may encounter : \\ 
+\\
+Spaces are very important in python so you may get an error saying ``unexpected indent'' or similar\\ 
+\\
+You might get an error like ``picamera.exc.PiCameraMMALError: Camera component couldn't be enabled: Out of resources (other than memory)'' when trying to take a photo. 
+This means that you have already opened the camera (camera = picamera.PiCamera()) - there is only one camera so it only needs to be opened once. \\
+\\
+You might see an error like this : ``RuntimeError: No access to /dev/mem.  Try running as root!'' when trying to run the program. Use ``sudo python motioncamera.py'' instead \\
+\\
+\textbf{ANY QUESTIONS JUST ASK!}
+
+
+\newpage\section{Other things to do}
+If we get all this done, there are other things we could do - for example
+\begin{enumerate}
+\item Take a short video rather than a photo, and email that
+\item Change the mechanism so that rather than a PIR, this is connected to a button so that it could be used as a doorbell
+\end{enumerate}
+
+
+
+
+
+
+
+\end{document}

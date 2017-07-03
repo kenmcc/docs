@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}Introduction to Python}{2}
+\contentsline {section}{\numberline {2}Interacting with real world items}{3}
+\contentsline {section}{\numberline {3}Detecting Movement}{4}
+\contentsline {subsection}{\numberline {3.1}Tasks:}{4}
+\contentsline {section}{\numberline {4}Taking a photo}{5}
+\contentsline {subsection}{\numberline {4.1}Tasks:}{5}
+\contentsline {section}{\numberline {5}Sending an Email}{6}
+\contentsline {subsection}{\numberline {5.1}Tasks:}{6}
+\contentsline {section}{\numberline {6}Tying it all together}{7}
+\contentsline {subsection}{\numberline {6.1}Task:}{7}
+\contentsline {section}{\numberline {7}Other things to do}{8}
