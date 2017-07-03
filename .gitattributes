@@ -1,0 +1,5 @@
+atmosphericmonitoringwitharduino.pdf filter=lfs diff=lfs merge=lfs -text
+environmentalmonitoringwitharduino.pdf filter=lfs diff=lfs merge=lfs -text
+makerpro.pdf filter=lfs diff=lfs merge=lfs -text
+thebestofinstructables_vol1.pdf filter=lfs diff=lfs merge=lfs -text
+thebestofmake.pdf filter=lfs diff=lfs merge=lfs -text
